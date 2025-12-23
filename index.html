@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LuxShop</title>
   <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="./styles/products.css">
+  <link rel="stylesheet" href="./styles/cart.css">
 </head>
 <body>
 
@@ -19,96 +21,137 @@
         <a href="#">Contacto</a>
       </nav>
 
-      <div class="cart">Carrito</div>
+      <div class="navicon">
+        <img src="./assets/carrito.png" alt="carrito">
+      </div>
     </div>
   </header>
 
-  <section class="hero">
-        <span class="badge">Nueva Colección 2026</span>
-
-        <h1>
-        Experiencia de
-        <br/>
-        compra <span>excepcional</span>
-        </h1>
-
-        <p>
-        Descubre productos únicos cuidadosamente seleccionados<br />
-        para transformar tu estilo de vida
-        </p>
-
-        <div class="hero-buttons">
-        <button class="btn-primary">
-            Explorar Productos →
-        </button>
-        <button class="btn-secondary">
-            Conocer Más
-        </button>
-        </div>
-    </section>
-    <section class="vento-section">
-    <div class="vento-grid">
-
-        <div class="vento-item vento-large">
-        <img src="./assets/prod2.webp" alt="Producto destacado">
-        </div>
-
-        <div class="vento-column">
-        <div class="vento-item">
-            <img src="./assets/prod3.webp" alt="Producto secundario">
-        </div>
-
-        <div class="vento-item">
-            <img src="./assets/prod1.webp" alt="Producto secundario">
-        </div>
-        </div>
-
+  <div class="cart-overlay" id="cartOverlay"></div>
+  
+  <aside class="cart-modal" id="cartModal">
+    <div class="cart-header">
+      <h3>Carrito</h3>
+      <button onclick="closeCart()">✕</button>
     </div>
-    </section>
-    <section class="benefits-section">
-        <div class="benefits-header">
-            <h2>Redefiniendo la experiencia de compra</h2>
-            <p>
-            Somos más que una tienda. Somos curadores de experiencias excepcionales,
-            comprometidos con ofrecerte lo mejor en cada detalle.
-            </p>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        Total: <strong id="cartTotal">$0</strong>
+      </div>
+      <button class="checkout-btn">Finalizar compra</button>
+    </div>
+  </aside>
+
+  <span class="cart-count" id="cartCount">0</span>
+
+  <section class="hero">
+    <span class="badge">Nueva Colección 2026</span>
+
+    <h1>
+      Experiencia de
+      <br/>
+      compra <span>excepcional</span>
+    </h1>
+
+    <p>
+      Descubre productos únicos cuidadosamente seleccionados<br />
+      para transformar tu estilo de vida
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn-primary">
+        Explorar Productos →
+      </button>
+      <button class="btn-secondary">
+        Conocer Más
+      </button>
+    </div>
+  </section>
+
+  <section class="vento-section">
+    <div class="vento-grid">
+      <div class="vento-item vento-large">
+        <img src="./assets/prod2.webp" alt="Producto destacado">
+      </div>
+
+      <div class="vento-column">
+        <div class="vento-item">
+          <img src="./assets/prod3.webp" alt="Producto secundario">
         </div>
 
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="icon">
-                    <img src="./assets/calidad.png" alt="Calidad Premium">
-                </div>
-                <h3>Calidad Premium</h3>
-                <p>
-                    Cada producto es seleccionado cuidadosamente para garantizar la más
-                    alta calidad y durabilidad.
-                </p>
-            </div>
-
-            <div class="benefit-card">
-            <div class="icon">
-                <img src="./assets/medalla.png" alt="Reconocimiento Global">
-                </div>
-                <h3>Reconocimiento Global</h3>
-                <p>
-                    Premiados por nuestro compromiso con la excelencia y la innovación en
-                    el diseño.
-                </p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="icon">
-                    <img src="./assets/satisfaccion.png" alt="Satisfacción Garantizada">
-                </div>
-                <h3>Satisfacción Garantizada</h3>
-                <p>
-                    Tu felicidad es nuestra prioridad. Garantía total en todos nuestros
-                    productos.
-                </p>
-            </div>
+        <div class="vento-item">
+          <img src="./assets/prod1.webp" alt="Producto secundario">
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
+  <section class="benefits-section">
+    <div class="benefits-header">
+      <h2>Redefiniendo la experiencia de compra</h2>
+      <p>
+        Somos más que una tienda. Somos curadores de experiencias excepcionales,
+        comprometidos con ofrecerte lo mejor en cada detalle.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="icon">
+          <img src="./assets/calidad.png" alt="Calidad Premium">
+        </div>
+        <h3>Calidad Premium</h3>
+        <p>
+          Cada producto es seleccionado cuidadosamente para garantizar la más
+          alta calidad y durabilidad.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">
+          <img src="./assets/medalla.png" alt="Reconocimiento Global">
+        </div>
+        <h3>Reconocimiento Global</h3>
+        <p>
+          Premiados por nuestro compromiso con la excelencia y la innovación en
+          el diseño.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">
+          <img src="./assets/satisfaccion.png" alt="Satisfacción Garantizada">
+        </div>
+        <h3>Satisfacción Garantizada</h3>
+        <p>
+          Tu felicidad es nuestra prioridad. Garantía total en todos nuestros
+          productos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="collection-section">
+    <div class="collection-header">
+      <h2>Nuestra Colección</h2>
+      <p>Productos cuidadosamente seleccionados para elevar tu estilo de vida</p>
+
+      <div class="filters">
+        <button data-category="all" class="active">Todos</button>
+        <button data-category="electronics">Tecnología</button>
+        <button data-category="jewelery">Belleza</button>
+        <button data-category="men's clothing">Ropa</button>
+        <button data-category="women's clothing">Calzado</button>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      </div>
+  </section>
+  <script src="./scripts/cartService.js"></script>
+  <script src="./scripts/apiService.js"></script>
 </body>
 </html>
