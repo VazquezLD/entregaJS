@@ -29,6 +29,6 @@ El proyecto simula una tienda de moda y tecnología llamada **LuxShop**, con un 
 - Comprobación de campos vacíos, longitud mínima de caracteres y formato de email con Expresiones Regulares (Regex).
 - Feedback visual (mensajes de error en rojo y éxito en verde).
 
-### 5. Diseño Responsive (Mobile First)
+### 5. Diseño Responsive
 - Adaptable a dispositivos móviles, tablets y escritorio.
 - **Menú Hamburguesa:** Navegación funcional en móviles desarrollada con lógica JS (toggle de clases).
