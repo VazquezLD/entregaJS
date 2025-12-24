@@ -5,6 +5,8 @@ const cartOverlay = document.getElementById("cartOverlay");
 const cartItemsContainer = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 const cartCount = document.getElementById("cartCount");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
 cartBtn.addEventListener("click", () => {
     cartModal.classList.add("open");
@@ -106,4 +108,13 @@ function renderCart() {
 
 function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+
+function toggleMenu() {
+    navLinks.classList.remove('active');
 }
